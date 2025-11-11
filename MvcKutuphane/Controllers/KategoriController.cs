@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcKutuphane.Models.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,12 @@ namespace MvcKutuphane.Controllers
 {
     public class KategoriController : Controller
     {
-        // GET: Kategori
-        public ActionResult Index()
+		// GET: Kategori
+		DbKutuphaneEntities db = new DbKutuphaneEntities();//veritabanı için oluşturuldu ve nesne türettik
+		public ActionResult Index()
         {
-            return View();
+            var kategoriler = db.Kategoriler.ToList();//Kategoriler tablosundaki tüm verileri listeledik
+			return View(kategoriler);
         }
     }
 }
