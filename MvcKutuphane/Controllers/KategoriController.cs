@@ -20,16 +20,23 @@ namespace MvcKutuphane.Controllers
 			return View(kategoriler);
         }
         [HttpGet]
-		public ActionResult KategoriEkle()
+		public ActionResult KategoriEkle()//get işlemi yani sayfa yüklendiğinde bu metot çalışacak
 		{
 			return View();
 		}
 		[HttpPost]
-		public ActionResult KategoriEkle(Kategoriler kategoriler)
+		public ActionResult KategoriEkle(Kategoriler kategoriler)//post işlemi yani butona tıklandığında bu metot çalışacak
 		{
 			db.Kategoriler.Add(kategoriler);//ekleme işlemi
-			db.SaveChanges();//değişiklikleri kaydet
-			return RedirectToAction("Index");//ekleme işleminden sonra indexe yönlendir
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
+		public ActionResult KategoriSil(int id)
+		{
+			var kategori = db.Kategoriler.Find(id);//id ye göre kategoriyi bul
+			db.Kategoriler.Remove(kategori);//kategoriyi sil
+			db.SaveChanges();
+			return RedirectToAction("Index");
 		}
 	}
 }
