@@ -1,0 +1,31 @@
+﻿@*Güncellenecek veriyi model olarak aldık*@
+@model MvcKutuphane.Models.Entity.Yazarlar
+@{
+    ViewBag.Title = "YazarGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2 class="text-center">Yazar Güncelle</h2>
+<hr />
+@using (Html.BeginForm("YazarGuncelle", "Yazar", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        @Html.LabelFor(k => k.Id)
+        @Html.TextBoxFor(k => k.Id, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Ad)
+        @Html.TextBoxFor(k => k.Ad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Soyad)
+        @Html.TextBoxFor(k => k.Soyad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Detay)
+        @Html.TextBoxFor(k => k.Detay, new { @class = "form-control" })
+        <br />
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}
+

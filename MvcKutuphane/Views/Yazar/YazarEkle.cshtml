@@ -1,0 +1,26 @@
+﻿@model List<MvcKutuphane.Models.Entity.Yazarlar>
+@{
+    ViewBag.Title = "YazarEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>Yazar İşlemleri</h2>
+<form class="form-group" method="post">
+    <br />
+    <div>
+        <label>Yazar Adı</label>
+        <input type="text" class="form-control" name="Ad" />
+    </div>
+    <div>
+        <label>Yazar Soyadı</label>
+        <input type="text" class="form-control" name="Soyad" />
+    </div>
+    <div>
+        <label>Yazar Detay</label>
+        <input type="text" class="form-control" name="Detay" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-primary" id="btn1">Yazar Ekle</button>
+    </div>
+</form>
+

@@ -1,0 +1,39 @@
+﻿@using MvcKutuphane.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Yazarlar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2 class="text-center">Yazar İşlemleri</h2>
+<hr />
+<table class="table table-bordered">
+    <tr>
+        <th>Yazar ID</th>
+        <th>Yazar Adı</th>
+        <th>Yazar Soyadı</th>
+        <th>Detay</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var yazar in Model)
+    {
+        <tr>
+            <td>@yazar.Id</td>
+            <td>@yazar.Ad</td>
+            <td>@yazar.Soyad</td>
+            <td>@yazar.Detay</td>
+            <td><a href="/Yazar/YazarSil/@yazar.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Yazar/YazarGetir/@yazar.Id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+@*@Html.PagedListPager((IPagedList)Model, yzrsayfa => Url.Action("Index", new { yzrsayfa }))*@
+@Html.PagedListPager(Model, page => Url.Action("Index", new { yzrsayfa = page }))
+
+<br />
+<a href="/Yazar/YazarEkle/" class="btn btn-primary">
+    <i class="bi bi-plus-circle"></i> Yeni Yazar Ekle
+</a>
