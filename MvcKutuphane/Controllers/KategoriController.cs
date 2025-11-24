@@ -43,5 +43,12 @@ namespace MvcKutuphane.Controllers
 			var kategori = db.Kategoriler.Find(id);//id ye göre kategoriyi bul
 			return View("KategoriGetir", kategori);//bulunan kategoriyi getir
 		}
+		public ActionResult KategoriGuncelle(Kategoriler kategoriler)
+		{
+			var kategori = db.Kategoriler.Find(kategoriler.Id);//id ye göre kategoriyi bul
+			kategori.Ad = kategoriler.Ad;//kategorinin adını güncelle
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
 	}
 }
