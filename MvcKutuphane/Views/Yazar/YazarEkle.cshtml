@@ -1,23 +1,24 @@
-﻿@model List<MvcKutuphane.Models.Entity.Yazarlar>
+﻿@model MvcKutuphane.Models.Entity.Yazarlar
 @{
     ViewBag.Title = "YazarEkle";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@*bu derste html helperlar kullanıldı dıkkat et bu kullanıslıdır*@
 <br />
 <h2>Yazar İşlemleri</h2>
 <form class="form-group" method="post">
     <br />
-    <div>
+    <div style="margin-bottom:15px">
         <label>Yazar Adı</label>
-        <input type="text" class="form-control" name="Ad" />
+        @Html.TextBoxFor(y => y.Ad, new { @class = "form-control" })
     </div>
-    <div>
+    <div style="margin-bottom:15px">
         <label>Yazar Soyadı</label>
-        <input type="text" class="form-control" name="Soyad" />
+        @Html.TextBoxFor(y => y.Soyad, new { @class = "form-control" })
     </div>
-    <div>
+    <div style="margin-bottom:15px">
         <label>Yazar Detay</label>
-        <input type="text" class="form-control" name="Detay" />
+        @Html.TextAreaFor(y => y.Detay, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
         <button class="btn btn-primary" id="btn1">Yazar Ekle</button>

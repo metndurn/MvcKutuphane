@@ -25,7 +25,10 @@
             <td>@yazar.Ad</td>
             <td>@yazar.Soyad</td>
             <td>@yazar.Detay</td>
-            <td><a href="/Yazar/YazarSil/@yazar.Id" class="btn btn-danger">Sil</a></td>
+            @*<td><a href="/Yazar/YazarSil/@yazar.Id" class="btn btn-danger">Sil</a></td>*@
+            @*burada alert kullandık sılmek ıstedıgımızde bızlere uyarı versın dıye*@
+            <td>@Html.ActionLink("Sil","YazarSil",new {id = yazar.Id }, 
+               new {@class = "btn btn-danger",onclick = "return confirm('Silmek İstiyor Musunuz?')"})</td>
             <td><a href="/Yazar/YazarGetir/@yazar.Id" class="btn btn-success">Güncelle</a></td>
         </tr>
     }

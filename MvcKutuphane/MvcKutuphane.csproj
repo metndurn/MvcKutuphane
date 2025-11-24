@@ -254,8 +254,8 @@
     <Content Include="Views\Kategori\KategoriEkle.cshtml" />
     <Content Include="Views\Kategori\KategoriGetir.cshtml" />
     <Content Include="Views\Yazar\Index.cshtml" />
-    <Content Include="Views\Yazar\YazarEkle.cshtml" />
     <Content Include="Views\Yazar\YazarGetir.cshtml" />
+    <Content Include="Views\Yazar\YazarEkle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
