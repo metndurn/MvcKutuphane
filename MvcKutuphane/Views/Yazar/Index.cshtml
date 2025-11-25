@@ -9,14 +9,17 @@
 <br />
 <h2 class="text-center">Yazar İşlemleri</h2>
 <hr />
+<div style="margin-bottom:15px;margin-top:15px;">
+    <input type="text" class="form-control" placeholder="aranacak yazarı giriniz..." />
+</div>
 <table class="table table-bordered">
     <tr>
         <th>Yazar ID</th>
         <th>Yazar Adı</th>
         <th>Yazar Soyadı</th>
         <th>Detay</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
+        <th>Yazar Sil</th>
+        <th>Yazar Güncelle</th>
     </tr>
     @foreach (var yazar in Model)
     {

@@ -1,0 +1,49 @@
+﻿@using MvcKutuphane.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Kitaplar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2 class="text-center">Kitap İşlemleri</h2>
+<hr />
+<div style="margin-bottom:15px;margin-top:15px;">
+    <input type="text" class="form-control" placeholder="aranacak kitabı giriniz..." />
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>Kitap Id</th>
+        <th>Kitap Adı</th>
+        <th>Kitap Yazarı</th>
+        <th>Kitap Kategorisi</th>
+        <th>Kitap Basım Yılı</th>
+        <th>Kitap Yayınevi</th>
+        <th>Kitap Sayfası</th>
+        <th>Kitap Durumu</th>
+        <th>Kitap Sil</th>
+        <th>Kitap Güncelle</th>
+    </tr>
+    @foreach (var kitap in Model)
+    {
+        <tr>
+            <td>@kitap.Id</td>
+            <td>@kitap.Ad</td>
+            <td>@kitap.Yazarlar.Ad&nbsp @kitap.Yazarlar.Soyad</td>
+            @*burada yazar sınıfından yazarın ısmını alıyoruz numara olarak gelmesını ıstemedıgımız ıcın bu yapı var*@
+            <td>@kitap.Kategoriler.Ad</td>
+            <td>@kitap.BasimYili</td>
+            <td>@kitap.YayinEvi</td>
+            <td>@kitap.Sayfa</td>
+            <td>@kitap.Durum</td>
+            <td><a href="/Kitap/KitapSil/@kitap.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Kitap/KitapGetir/@kitap.Id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { ktpsayfa = page }))
+<br />
+<a href="/Kitap/KitapEkle" class="btn btn-primary">
+    <i class="bi bi-plus-circle"></i> Yeni Kitap Ekle
+</a>

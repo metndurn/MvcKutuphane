@@ -9,12 +9,15 @@
 <br />
 <h2 class="text-center">Kategori İşlemleri</h2>
 <hr />
+<div style="margin-bottom:15px;margin-top:15px;">
+    <input type="text" class="form-control" placeholder="aranacak kategoriyi giriniz..." />
+</div>
 <table class="table table-bordered">
     <tr>
         <th>Kategori ID</th>
         <th>Kategori Adı</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
+        <th>Kategori Sil</th>
+        <th>Kategori Güncelle</th>
     </tr>
     @foreach (var kategori in Model)
     {

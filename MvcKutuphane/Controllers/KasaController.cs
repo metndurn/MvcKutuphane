@@ -1,5 +1,4 @@
 ﻿using MvcKutuphane.Models.Entity;
-using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +7,14 @@ using System.Web.Mvc;
 
 namespace MvcKutuphane.Controllers
 {
-    public class KitapController : Controller
+    public class KasaController : Controller
     {
-		// GET: Kitap
+		// GET: Kasa
 		DbKutuphaneEntities db = new DbKutuphaneEntities();
-		public ActionResult Index(int ktpsayfa = 1)
+		public ActionResult Index()
         {
-			//var kitaplar = db.Kitaplar.ToList();
-			var kitaplar = db.Kitaplar.ToList().ToPagedList(ktpsayfa, 10);
-			return View(kitaplar);
+            var kasa = db.Kasa.ToList();
+			return View(kasa);
         }
     }
 }
