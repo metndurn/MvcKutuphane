@@ -267,6 +267,7 @@
     <Content Include="Views\Personel\Index.cshtml" />
     <Content Include="Views\Hareketler\Index.cshtml" />
     <Content Include="Views\Uyeler\Index.cshtml" />
+    <Content Include="Views\Kitap\KitapEkle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -18,5 +18,18 @@ namespace MvcKutuphane.Controllers
 			var kitaplar = db.Kitaplar.ToList().ToPagedList(ktpsayfa, 10);
 			return View(kitaplar);
         }
-    }
+		[HttpGet]/*bu sefer ıcınde degerler olmasını ıstıyoruz o sekılde gelecek*/
+		public ActionResult KitapEkle()
+		{
+			return View();
+		}
+		[HttpPost]
+		public ActionResult KitapEkle(Kitaplar kitaplar)
+		{
+			//db.Kitaplar.Add(kitaplar);
+			//db.SaveChanges();
+			//return RedirectToAction("Index");
+			return View();
+		}
+	}
 }
