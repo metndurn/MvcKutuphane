@@ -21,6 +21,24 @@ namespace MvcKutuphane.Controllers
 		[HttpGet]/*bu sefer ıcınde degerler olmasını ıstıyoruz o sekılde gelecek*/
 		public ActionResult KitapEkle()
 		{
+			/*liste halinde verileri cektik from ile nereden alacagını soyledık ve listeledik
+			 select new ile ogeleri listeledik istenenleri ise asagıda verdık*/
+			List<SelectListItem> kitap = (from i in db.Kategoriler.ToList()
+										select new SelectListItem
+										{
+											Text = i.Ad,
+											Value = i.Id.ToString()
+										}).ToList();
+			ViewBag.kitapdegeri = kitap;//viewbag ıle gonderdık yani view ıcınde kullanabılırız
+
+			List<SelectListItem> yazar = (from i in db.Yazarlar.ToList()
+										  select new SelectListItem
+										  {
+											  Text = i.Ad + ' ' + i.Soyad,
+											  Value = i.Id.ToString()
+										  }).ToList();
+			ViewBag.yazardegeri = yazar;//viewbag ıle gonderdık yani view ıcınde kullanabılırız
+
 			return View();
 		}
 		[HttpPost]

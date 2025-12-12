@@ -14,11 +14,12 @@
     </div>
     <div style="margin-bottom:15px">
         <label>Kitap Kategorisi</label>
-        @Html.TextBoxFor(kitap => kitap.Kategori, new { @class = "form-control" })
+        @*@Html.TextBoxFor(kitap => kitap.Kategori, new { @class = "form-control" })*@
+        @Html.DropDownListFor(kitap => kitap.Kategoriler.Id,(List<SelectListItem>)ViewBag.kitapdegeri, "Kategori Seçiniz", new { @class = "form-control" })
     </div>
     <div style="margin-bottom:15px">
         <label>Kitap Yazarı</label>
-        @Html.TextBoxFor(kitap => kitap.Yazar, new { @class = "form-control" })
+        @Html.DropDownListFor(yazar => yazar.Yazarlar.Id, (List<SelectListItem>)ViewBag.yazardegeri, "Yazar Seçiniz", new { @class = "form-control" })
     </div>
     <div style="margin-bottom:15px">
         <label>Kitap Basım Yılı</label>
@@ -33,6 +34,6 @@
         @Html.TextBoxFor(kitap => kitap.Sayfa, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
-        <button class="btn btn-primary" id="btn1">Yazar Ekle</button>
+        <button class="btn btn-primary" id="btn1">Kitap Ekle</button>
     </div>
 </form>
